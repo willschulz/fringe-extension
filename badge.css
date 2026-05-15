@@ -1,0 +1,170 @@
+/* badge.css — Fringe Detector inline badge styles
+ *
+ * Injected into every Twitter/X page by the content script.
+ * All class names are prefixed with "fringe-" to avoid collisions with
+ * the host page's own CSS.  No !important rules: the host page should not
+ * override these (they're inside <article> DOM subtrees we own), and
+ * we don't want to accidentally override theirs.
+ */
+
+/* ── Container ─────────────────────────────────────────────────────────── */
+
+.fringe-badge {
+  margin: 6px 12px 2px 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #536471; /* X's secondary text colour */
+}
+
+/* ── Toggle button ──────────────────────────────────────────────────────── */
+
+.fringe-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #536471;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.fringe-toggle:hover .fringe-label {
+  text-decoration: underline;
+  color: #1d9bf0; /* X's link blue */
+}
+
+.fringe-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.fringe-chevron {
+  font-size: 11px;
+  transition: transform 0.15s ease;
+}
+
+/* ── Expanded panel ─────────────────────────────────────────────────────── */
+
+.fringe-panel {
+  padding: 6px 0 4px 0;
+}
+
+.fringe-hits {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ── Individual hit ─────────────────────────────────────────────────────── */
+
+.fringe-hit {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 8px;
+  background: rgba(29, 155, 240, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #1d9bf0;
+}
+
+/* Source + year pill */
+.fringe-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1d9bf0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Question stem */
+.fringe-stem {
+  font-size: 13px;
+  color: #0f1419;
+  font-weight: 400;
+}
+
+/* Response options row */
+.fringe-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.fringe-opt {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.06);
+  color: #536471;
+  white-space: nowrap;
+}
+
+.fringe-opt-more {
+  background: transparent;
+  color: #aab8c2;
+  padding-left: 2px;
+}
+
+/* "view question" link */
+.fringe-link {
+  font-size: 11px;
+  color: #1d9bf0;
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+.fringe-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+
+.fringe-footer {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+  color: #aab8c2;
+}
+
+.fringe-footer a {
+  color: #aab8c2;
+  text-decoration: none;
+}
+
+.fringe-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Dark mode override ─────────────────────────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  .fringe-badge {
+    border-top-color: rgba(255, 255, 255, 0.08);
+    color: #8b98a5;
+  }
+
+  .fringe-toggle {
+    color: #8b98a5;
+  }
+
+  .fringe-stem {
+    color: #e7e9ea;
+  }
+
+  .fringe-hit {
+    background: rgba(29, 155, 240, 0.08);
+    border-left-color: #1d9bf0;
+  }
+
+  .fringe-opt {
+    background: rgba(255, 255, 255, 0.08);
+    color: #8b98a5;
+  }
+}

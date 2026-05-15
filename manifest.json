@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Fringe Detector",
+  "version": "0.1.0",
+  "description": "Annotates posts on X/Twitter and Bluesky with relevant public-opinion survey data, showing how mainstream or fringe each expressed view actually is.",
+
+  "permissions": [],
+  "host_permissions": [
+    "https://demoscope.manx-celsius.ts.net/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://twitter.com/*",
+        "*://x.com/*",
+        "*://bsky.app/*"
+      ],
+      "js": ["content.js"],
+      "css": ["badge.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
