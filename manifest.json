@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Fringe Detector",
   "version": "0.1.0",
-  "description": "Annotates posts on X/Twitter and Bluesky with relevant public-opinion survey data, showing how mainstream or fringe each expressed view actually is.",
+  "description": "Annotates posts on X/Twitter, Bluesky, and Reddit with relevant public-opinion survey data, showing how mainstream or fringe each expressed view actually is.",
 
   "permissions": [],
   "host_permissions": [
@@ -18,7 +18,9 @@
       "matches": [
         "*://twitter.com/*",
         "*://x.com/*",
-        "*://bsky.app/*"
+        "*://bsky.app/*",
+        "*://www.reddit.com/*",
+        "*://reddit.com/*"
       ],
       "js": ["content.js"],
       "css": ["badge.css"],

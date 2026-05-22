@@ -1,13 +1,15 @@
 /**
  * content.js — Post Scanner & Badge Injector
  *
- * Supports two platforms:
+ * Supports three platforms:
  *   - X / Twitter  (twitter.com, x.com)
  *   - Bluesky      (bsky.app)
+ *   - Reddit       (reddit.com) — new Reddit / Shreddit only
  *
  * Polls the DOM every 800 ms looking for new posts.  For each new post:
  *   1. Extract the post's text content.
- *   2. Extract a stable post ID for caching (tweet numeric ID or Bluesky rkey).
+ *   2. Extract a stable post ID for caching (tweet numeric ID, Bluesky rkey,
+ *      or Reddit fullname / post ID).
  *   3. Send a SEARCH message to background.js.
  *   4. Inject a .fringe-badge element near the post when results arrive —
  *      or do nothing if no strong match is found.
@@ -17,7 +19,10 @@
  */
 
 // Maximum characters of post text to send as the search query.
+// Reddit titles can hit 300 chars; self-posts and comments carry even more
+// context, so we use a higher cap for that platform.
 const MAX_QUERY_CHARS = 280;
+const MAX_QUERY_CHARS_REDDIT = 500;
 
 // Similarity threshold below which we suppress the badge.
 // Mirrors survey_search.config.WEAK_MATCH_THRESHOLD.
@@ -115,6 +120,122 @@ const PLATFORMS = {
       }
     },
   },
+
+  /**
+   * Reddit (new Reddit / Shreddit, ~2023+)
+   *
+   * Shreddit renders posts and comments as custom HTML elements:
+   *   <shreddit-post>   — feed cards and the OP block on post pages
+   *   <shreddit-comment>— top-level and nested comment blocks
+   *
+   * Both element types expose their content as slotted light-DOM children
+   * (accessible with normal querySelector) and as HTML attributes on the
+   * custom element itself.  No shadow-piercing is required.
+   *
+   * Post ID: the `id` attribute holds the Reddit fullname (e.g. "t3_abc123").
+   *   Fallback: parse the post ID from the `permalink` attribute or a child
+   *   <a> whose href contains /comments/<id>/.
+   * Comment ID: the `thingid` attribute holds the fullname (e.g. "t1_xyz789").
+   *   Fallback: parse from a child permalink link.
+   *
+   * Badge placement:
+   *   - Post: appended to the <shreddit-post> element (below the action bar).
+   *   - Comment: appended to the <shreddit-comment> element (below the body).
+   */
+  reddit: {
+    containerSelector: "shreddit-post, shreddit-comment",
+
+    extractId(container) {
+      const tag = container.tagName.toLowerCase();
+
+      if (tag === "shreddit-post") {
+        // Prefer the fullname attribute (t3_<id>), else the bare id attr.
+        const fullname = container.getAttribute("id") ||
+                         container.getAttribute("data-fullname");
+        if (fullname) return fullname;
+
+        // Fallback: pull post ID from permalink attribute.
+        const permalink = container.getAttribute("permalink");
+        if (permalink) {
+          const m = permalink.match(/\/comments\/([a-z0-9]+)\//i);
+          if (m) return `t3_${m[1]}`;
+        }
+
+        // Last resort: scan child links for a /comments/ href.
+        for (const link of container.querySelectorAll("a[href*='/comments/']")) {
+          const m = link.href.match(/\/comments\/([a-z0-9]+)\//i);
+          if (m) return `t3_${m[1]}`;
+        }
+      }
+
+      if (tag === "shreddit-comment") {
+        // thingid is the fullname (t1_<id>).
+        const thingid = container.getAttribute("thingid") ||
+                        container.getAttribute("id");
+        if (thingid) return thingid;
+
+        // Fallback: look for a permalink on child anchor.
+        for (const link of container.querySelectorAll("a[href*='/comment/']")) {
+          const m = link.href.match(/\/comment\/([a-z0-9]+)\//i);
+          if (m) return `t1_${m[1]}`;
+        }
+      }
+
+      return null;
+    },
+
+    extractText(container) {
+      const tag = container.tagName.toLowerCase();
+      const parts = [];
+
+      if (tag === "shreddit-post") {
+        // Title: slotted child first, then attribute fallback.
+        const titleSlot = container.querySelector('[slot="title"]');
+        if (titleSlot) {
+          parts.push(titleSlot.textContent.trim());
+        } else {
+          const attrTitle = container.getAttribute("post-title");
+          if (attrTitle) parts.push(attrTitle.trim());
+        }
+
+        // Subreddit adds useful topical context for the demoscope query.
+        const sub = container.getAttribute("subreddit-prefixed-name") ||
+                    container.getAttribute("subreddit-name");
+        if (sub) parts.push(`[${sub}]`);
+
+        // Flair signals community framing.
+        const flair = container.querySelector('[slot="flair"]');
+        if (flair) {
+          const flairText = flair.textContent.trim();
+          if (flairText) parts.push(`[Flair: ${flairText}]`);
+        }
+
+        // Self-post body (text posts have the actual opinion here).
+        const body = container.querySelector('[slot="text-body"], [slot="post-body"]');
+        if (body) {
+          const bodyText = body.textContent.trim();
+          if (bodyText) parts.push(bodyText);
+        }
+      }
+
+      if (tag === "shreddit-comment") {
+        // Comment body is in [slot="comment"].
+        const commentSlot = container.querySelector('[slot="comment"]');
+        if (commentSlot) {
+          parts.push(commentSlot.textContent.trim().slice(0, 400));
+        }
+      }
+
+      const combined = parts.join(" | ");
+      return combined.slice(0, MAX_QUERY_CHARS_REDDIT) || null;
+    },
+
+    injectBadge(container, badge) {
+      // Append to the custom element — this places the badge below Reddit's
+      // native action row without fighting their internal slot layout.
+      container.appendChild(badge);
+    },
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -123,6 +244,7 @@ const PLATFORMS = {
 
 function detectPlatform() {
   const host = window.location.hostname;
+  if (host.includes("reddit.com")) return PLATFORMS.reddit;
   if (host.includes("bsky.app")) return PLATFORMS.bluesky;
   return PLATFORMS.twitter; // default: x.com / twitter.com
 }

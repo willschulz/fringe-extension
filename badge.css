@@ -1,10 +1,9 @@
 /* badge.css — Fringe Detector inline badge styles
  *
- * Injected into every Twitter/X page by the content script.
+ * Injected into host pages (X/Twitter, Bluesky, Reddit) by the content script.
  * All class names are prefixed with "fringe-" to avoid collisions with
  * the host page's own CSS.  No !important rules: the host page should not
- * override these (they're inside <article> DOM subtrees we own), and
- * we don't want to accidentally override theirs.
+ * override these, and we don't want to accidentally override theirs.
  */
 
 /* ── Container ─────────────────────────────────────────────────────────── */
@@ -140,6 +139,16 @@
 
 .fringe-footer a:hover {
   text-decoration: underline;
+}
+
+/* ── Reddit density adjustment ──────────────────────────────────────────── */
+/* shreddit-comment has a tighter layout; pull the badge in a bit. */
+shreddit-comment .fringe-badge {
+  margin: 4px 0 2px 0;
+}
+
+shreddit-post .fringe-badge {
+  margin: 6px 0 2px 0;
 }
 
 /* ── Dark mode override ─────────────────────────────────────────────────── */
