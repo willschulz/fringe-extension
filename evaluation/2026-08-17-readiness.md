@@ -84,6 +84,26 @@ research colleague is supportable with attribution and revocable credentials.
 Unrestricted API or Web Store publication requires a release-level terms
 audit, especially for Pew American Trends Panel materials.
 
+## Browser and privacy smoke test
+
+Chromium 151 loaded the unpacked extension through the same MV3 path Lisa will
+use. The popup started disabled, a Reddit page generated zero API requests
+before consent, the connection test succeeded, and the enable/pause state
+persisted in `chrome.storage.local`. All six observed API requests were bounded
+POSTs to the exact guarded endpoint; the largest body was 265 bytes.
+
+After a live-DOM selector repair, the extension processed and displayed badges
+on 2 Bluesky posts and 2 Reddit posts without extension console errors. An
+X-origin deterministic post fixture produced one badge. X's live public profile
+loaded in the fresh guest browser but exposed no tweet containers without an
+authenticated session, so the harness records that limitation rather than
+using the tester's personal Chrome profile. See
+[`browser-smoke-2026-08-17.json`](browser-smoke-2026-08-17.json).
+
+The release package was then built from an explicit runtime allowlist, checked
+for development-file leakage, SHA-256 checksummed, and signed with the
+repository's published SSH release key.
+
 ## Pilot feedback prompts
 
 Ask the tester to flag:

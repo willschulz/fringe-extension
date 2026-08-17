@@ -37,6 +37,9 @@ Chrome does not update unpacked extensions automatically. For a new pilot
 build, remove the old unpacked extension or select **Reload** after replacing
 its files.
 
+The tester-facing walkthrough and feedback prompts are in
+[LISA_PILOT_GUIDE.md](LISA_PILOT_GUIDE.md).
+
 ## Supported sites
 
 - `x.com` and `twitter.com`
@@ -74,6 +77,28 @@ Run the fixture-driven tests with:
 
 ```bash
 npm test
+```
+
+Run the live Chrome smoke harness with a token supplied through the environment:
+
+```bash
+DEMOSCOPE_API_TOKEN='...' npm run test:browser
+```
+
+Build a pilot ZIP, checksum, and SSH signature with:
+
+```bash
+FRINGE_SIGNING_KEY="$HOME/.ssh/id_rsa" ./scripts/package-release.sh
+```
+
+To verify a downloaded release:
+
+```bash
+shasum -a 256 -c fringe-detector-pilot-v0.2.0.zip.sha256
+printf 'willschulz %s\n' "$(cat RELEASE_SIGNING_KEY.pub)" > allowed_signers
+ssh-keygen -Y verify -f allowed_signers -I willschulz -n file \
+  -s fringe-detector-pilot-v0.2.0.zip.sig \
+  < fringe-detector-pilot-v0.2.0.zip
 ```
 
 The public repository contains extension source, tests, and synthetic fixtures

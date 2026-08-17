@@ -50,6 +50,8 @@ Constraints:
 
 Unknown response fields must be ignored. The extension must not reconstruct
 links from internal corpus paths; those paths are deliberately absent.
+The pilot currently searches Pew, ANES, GSS, and CES records. Knight/Gallup
+records remain private pending a separate redistribution-permission review.
 
 ## Error responses
 

@@ -79,38 +79,45 @@ const PLATFORMS = {
 
   /**
    * Bluesky
-   * - Post text lives in [data-testid="postText"] elements.
-   * - We use the postText element itself as the container anchor
-   *   (avoids needing to identify the outer card, which has no stable test ID).
+   * - Current cards use postThreadItem/feedItem test IDs; post text is the
+   *   first substantial div[dir="auto"]. Keep the former postText selector as
+   *   a fallback for older deployments.
    * - IDs are the AT Protocol record keys extracted from /post/<rkey> links.
-   * - Badge is injected as a sibling immediately after the postText element.
+   * - Badge is injected as a sibling immediately after the text element.
    */
   bluesky: {
-    containerSelector: '[data-testid="postText"]',
+    containerSelector:
+      'div[data-testid^="postThreadItem-by-"], div[data-testid^="feedItem-by-"]',
 
     extractId(container) {
-      // Walk up from the postText element to find a /post/ link in the
-      // enclosing card.  We search up to 10 ancestor levels.
-      let node = container;
-      for (let i = 0; i < 10; i++) {
-        node = node.parentElement;
-        if (!node) break;
-        for (const link of node.querySelectorAll("a[href*='/post/']")) {
-          const m = link.href.match(/\/profile\/[^/]+\/post\/([a-z0-9]+)/i);
-          if (m) return m[1];
-        }
+      for (const link of container.querySelectorAll("a[href*='/post/']")) {
+        const m = link.href.match(/\/profile\/[^/]+\/post\/([a-z0-9]+)/i);
+        if (m) return m[1];
       }
       return null;
     },
 
     extractText(container) {
-      return container.innerText.trim().slice(0, MAX_QUERY_CHARS) || null;
+      const legacy = container.querySelector('[data-testid="postText"]');
+      const candidates = legacy
+        ? [legacy]
+        : [...container.querySelectorAll('div[dir="auto"]')];
+      const textElement = candidates.find(
+        (element) => element.innerText.trim().length >= 12
+      );
+      return (
+        textElement?.innerText.trim().slice(0, MAX_QUERY_CHARS) || null
+      );
     },
 
     injectBadge(container, badge) {
-      // Insert the badge right after the postText div.
-      if (container.parentElement) {
-        container.parentElement.insertBefore(badge, container.nextSibling);
+      const textElement =
+        container.querySelector('[data-testid="postText"]') ||
+        [...container.querySelectorAll('div[dir="auto"]')].find(
+          (element) => element.innerText.trim().length >= 12
+        );
+      if (textElement?.parentElement) {
+        textElement.parentElement.insertBefore(badge, textElement.nextSibling);
       } else {
         container.appendChild(badge);
       }

@@ -2,3 +2,7 @@
 ._*
 *.swp
 *.swo
+node_modules/
+dist/
+evaluation/results/latest.json
+evaluation/browser-smoke-latest.json

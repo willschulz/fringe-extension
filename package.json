@@ -4,11 +4,15 @@
   "private": true,
   "description": "Fixture-driven checks for the Fringe Detector Chrome extension",
   "scripts": {
-    "test": "node --test",
-    "evaluate": "node evaluation/run-evaluation.mjs"
+    "test": "node --test test/shared.test.js",
+    "evaluate": "node evaluation/run-evaluation.mjs",
+    "test:browser": "node test/browser-smoke.mjs"
   },
   "engines": {
     "node": ">=20"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
 }
