@@ -3,7 +3,7 @@
 The extension uses one versioned endpoint:
 
 ```text
-POST https://demoscope-api.willschulz.com/v1/search
+POST https://willschulz.com/demoscope-api/v1/search
 Authorization: Bearer <pilot token>
 Content-Type: application/json
 ```

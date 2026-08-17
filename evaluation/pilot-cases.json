@@ -1,0 +1,146 @@
+[
+  {
+    "id": "domestic-immigration-deportation",
+    "category": "domestic policy",
+    "text": "The government should deport undocumented immigrants who are living in the United States.",
+    "expected_terms": ["deport", "undocumented", "illegally"]
+  },
+  {
+    "id": "domestic-abortion-legality",
+    "category": "domestic policy",
+    "text": "Abortion should be legal in all cases.",
+    "expected_terms": ["abortion", "legal"]
+  },
+  {
+    "id": "domestic-gun-background-checks",
+    "category": "domestic policy",
+    "text": "Private gun sales should require the same background checks as gun-store purchases.",
+    "expected_terms": ["gun", "background check", "private"]
+  },
+  {
+    "id": "domestic-climate-action",
+    "category": "domestic policy",
+    "text": "The federal government should do much more to address climate change.",
+    "expected_terms": ["climate", "global warming"]
+  },
+  {
+    "id": "domestic-election-fraud",
+    "category": "domestic policy",
+    "text": "Election fraud is a major threat to the integrity of American elections.",
+    "expected_terms": ["election", "fraud", "voting"]
+  },
+  {
+    "id": "online-misinformation-removal",
+    "category": "online culture",
+    "text": "Social media platforms should remove political misinformation.",
+    "expected_terms": ["social media", "misinformation", "remove"]
+  },
+  {
+    "id": "online-teen-age-limit",
+    "category": "online culture",
+    "text": "Children under sixteen should not be allowed to use social media.",
+    "expected_terms": ["social media", "children", "teen"]
+  },
+  {
+    "id": "online-ai-regulation",
+    "category": "online culture",
+    "text": "AI companies should be regulated before they release powerful models.",
+    "expected_terms": ["technology companies", "artificial intelligence", "regulat"]
+  },
+  {
+    "id": "online-creator-pay",
+    "category": "online culture",
+    "text": "Social platforms should pay creators a guaranteed share of advertising revenue.",
+    "expected_terms": ["creator", "advertising", "pay"]
+  },
+  {
+    "id": "online-data-privacy",
+    "category": "online culture",
+    "text": "The government should strictly limit how technology companies collect personal data.",
+    "expected_terms": ["data", "privacy", "technology companies"]
+  },
+  {
+    "id": "international-ukraine-funding",
+    "category": "international",
+    "text": "The United States should stop funding Ukraine.",
+    "expected_terms": ["ukraine", "russia", "aid"]
+  },
+  {
+    "id": "international-nato",
+    "category": "international",
+    "text": "The United States should remain committed to NATO even when allies spend too little on defense.",
+    "expected_terms": ["nato", "allies", "defense"]
+  },
+  {
+    "id": "international-gaza-ceasefire",
+    "category": "international",
+    "text": "The United States should pressure Israel to accept a permanent ceasefire in Gaza.",
+    "expected_terms": ["israel", "gaza", "ceasefire"]
+  },
+  {
+    "id": "international-china-tariffs",
+    "category": "international",
+    "text": "The United States should impose higher tariffs on goods imported from China.",
+    "expected_terms": ["china", "tariff", "trade"]
+  },
+  {
+    "id": "international-uk-monarchy",
+    "category": "international",
+    "text": "The United Kingdom should abolish the monarchy.",
+    "expected_terms": ["monarchy", "united kingdom", "britain"]
+  },
+  {
+    "id": "lifestyle-meat-morality",
+    "category": "lifestyle",
+    "text": "People who eat meat are doing something immoral.",
+    "expected_terms": ["meat", "moral", "vegetarian"]
+  },
+  {
+    "id": "lifestyle-remote-work",
+    "category": "lifestyle",
+    "text": "Employees should be allowed to work from home whenever their jobs permit it.",
+    "expected_terms": ["work from home", "remote work", "employees"]
+  },
+  {
+    "id": "lifestyle-children-smartphones",
+    "category": "lifestyle",
+    "text": "Parents should not give smartphones to children before high school.",
+    "expected_terms": ["smartphone", "children", "parents"]
+  },
+  {
+    "id": "lifestyle-polyamory",
+    "category": "lifestyle",
+    "text": "Consensual polyamorous relationships deserve the same social acceptance as monogamous relationships.",
+    "expected_terms": ["polyamor", "monogam", "relationship"]
+  },
+  {
+    "id": "lifestyle-homeschooling",
+    "category": "lifestyle",
+    "text": "Parents should have broad freedom to homeschool their children.",
+    "expected_terms": ["homeschool", "school", "parents"]
+  },
+  {
+    "id": "identity-gender-documents",
+    "category": "identity and values",
+    "text": "Government identity documents should include gender options beyond male and female.",
+    "expected_terms": ["gender", "male", "female"]
+  },
+  {
+    "id": "identity-trans-sports",
+    "category": "identity and values",
+    "text": "Transgender athletes should compete on teams matching their gender identity.",
+    "expected_terms": ["transgender", "athlete", "sports"]
+  },
+  {
+    "id": "identity-masculinity",
+    "category": "identity and values",
+    "text": "Traditional expectations of masculinity do more harm than good.",
+    "expected_terms": ["masculin", "men", "man"]
+  },
+  {
+    "id": "identity-religion-government",
+    "category": "identity and values",
+    "text": "The government should do more to support religion in public life.",
+    "expected_terms": ["religion", "government", "public life"]
+  }
+]

@@ -1,7 +1,8 @@
 (function initFringeShared(global) {
   "use strict";
 
-  const DEFAULT_API_URL = "https://demoscope-api.willschulz.com/v1/search";
+  const DEFAULT_API_URL =
+    "https://willschulz.com/demoscope-api/v1/search";
   const DEFAULT_SETTINGS = Object.freeze({
     enabled: false,
     apiUrl: DEFAULT_API_URL,

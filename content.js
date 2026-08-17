@@ -315,7 +315,9 @@ function buildBadge(data) {
         ${data.hits.map(hitToHTML).join("")}
       </div>
       <p class="fringe-footer">
-        Experimental match · not a fringe/mainstream classification
+        Experimental match · not a fringe/mainstream classification ·
+        <a href="https://github.com/willschulz/fringe-extension/blob/main/SURVEY_SOURCES.md"
+           target="_blank" rel="noopener">sources &amp; terms</a>
       </p>
     </div>`.trim();
 

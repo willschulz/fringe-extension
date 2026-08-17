@@ -6,7 +6,7 @@
 
   "permissions": ["storage"],
   "host_permissions": [
-    "https://demoscope-api.willschulz.com/*"
+    "https://willschulz.com/*"
   ],
 
   "background": {

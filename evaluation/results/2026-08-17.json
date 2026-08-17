@@ -1,0 +1,1412 @@
+{
+  "generated_at": "2026-08-17T13:35:20.047Z",
+  "endpoint": "https://willschulz.com/demoscope-api/v1/search",
+  "method": "Synthetic post-like statements; server weak-match gate plus a lexical top-hit relevance check. Manual review is still required.",
+  "summary": {
+    "cases": 24,
+    "relevant": 17,
+    "suppressed": 5,
+    "manual_review": 2,
+    "errors": 0,
+    "median_latency_ms": 958
+  },
+  "results": [
+    {
+      "id": "domestic-immigration-deportation",
+      "category": "domestic policy",
+      "text": "The government should deport undocumented immigrants who are living in the United States.",
+      "status": 200,
+      "latency_ms": 1721,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 151)",
+          "variable": "IMMENF_W151",
+          "q_text": "Who should enforce deportations of undocumented immigrants living in the United States?",
+          "options": [
+            "The federal government",
+            "State and local governments",
+            "Both",
+            "There should not be deportations",
+            "Don't know/Refused/Web blank"
+          ],
+          "year_min": 2024,
+          "year_max": 2024,
+          "n": 9201,
+          "embedding": 0.6432641744613647
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 146)",
+          "variable": "NATLDPRT_W146",
+          "q_text": "Do you think there should be a national law enforcement effort to deport all immigrants who are now living in the U.S. illegally?",
+          "options": [
+            "Should be national law enforcement effort to deport",
+            "Should not be national law enforcement effort to deport",
+            "Refused"
+          ],
+          "year_min": 2024,
+          "year_max": 2024,
+          "n": 8709,
+          "embedding": 0.608951985836029
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 24.5)",
+          "variable": "IMMDEPORT_W24.5",
+          "q_text": "Do you think there should be a national law enforcement effort to deport all immigrants who are now living in the U.S. illegally, or should that not be done?",
+          "options": [
+            "Should be national law enforcement effort to deport",
+            "Should not be national law enforcement effort to deport",
+            "Refused"
+          ],
+          "year_min": 2017,
+          "year_max": 2017,
+          "n": 3844,
+          "embedding": 0.6015384197235107
+        }
+      ]
+    },
+    {
+      "id": "domestic-abortion-legality",
+      "category": "domestic policy",
+      "text": "Abortion should be legal in all cases.",
+      "status": 200,
+      "latency_ms": 1039,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 53)",
+          "variable": "ABORTLGL_W53",
+          "q_text": "Do you think abortion should be…",
+          "options": [
+            "Legal in all cases",
+            "Legal in most cases",
+            "Illegal in most cases",
+            "Illegal in all cases",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 9895,
+          "embedding": 0.6756603717803955
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 146)",
+          "variable": "ABRTLGL_W146",
+          "q_text": "Do you think abortion should be…",
+          "options": [
+            "Legal in all cases",
+            "Legal in most cases",
+            "Illegal in most cases",
+            "Illegal in all cases",
+            "Refused"
+          ],
+          "year_min": 2024,
+          "year_max": 2024,
+          "n": 8709,
+          "embedding": 0.673977255821228
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 110)",
+          "variable": "ABRTLGL_W110",
+          "q_text": "Do you think abortion should be…",
+          "options": [
+            "Legal in all cases",
+            "Legal in most cases",
+            "Illegal in most cases",
+            "Illegal in all cases",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 6174,
+          "embedding": 0.6758638024330139
+        }
+      ]
+    },
+    {
+      "id": "domestic-gun-background-checks",
+      "category": "domestic policy",
+      "text": "Private gun sales should require the same background checks as gun-store purchases.",
+      "status": 200,
+      "latency_ms": 834,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (2006-2006)",
+          "variable": "gunsales",
+          "q_text": "In most states a gun owner may legally sell his or her gun without proof that the buyer has passed a criminal history check. How strongly do you favor or oppose a law that required private gun sales to be subject to the same background check requirements as sales by licensed dealers? Do you…",
+          "options": [
+            "1. Strongly favor",
+            "2. Favor",
+            "3. Neither favor nor oppose",
+            "4. Oppose",
+            "5. Strongly oppose"
+          ],
+          "year_min": 2006,
+          "year_max": 2006,
+          "n": null,
+          "embedding": 0.6671658754348755
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 53)",
+          "variable": "GUNPRIORITY1_d_W53",
+          "q_text": "Which of the following statements comes closest to your overall view of gun laws in this country? Making private gun sales and sales at gun shows subject to background checks",
+          "options": [
+            "Strongly favor",
+            "Somewhat favor",
+            "Somewhat oppose",
+            "Strongly oppose",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 9895,
+          "embedding": 0.5971941351890564
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 87)",
+          "variable": "GUNPRIORITY1_f_W87",
+          "q_text": "Please indicate whether you would favor or oppose / oppose or favor the following proposals about gun policy. Making private gun sales and sales at gun shows subject to background checks",
+          "options": [
+            "Strongly favor",
+            "Somewhat favor",
+            "Somewhat oppose",
+            "Strongly oppose",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 5109,
+          "embedding": 0.5624275207519531
+        }
+      ]
+    },
+    {
+      "id": "domestic-climate-action",
+      "category": "domestic policy",
+      "text": "The federal government should do much more to address climate change.",
+      "status": 200,
+      "latency_ms": 910,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 54)",
+          "variable": "GOVPRIORITYd_W54",
+          "q_text": "How much of a priority should each of the following be for the federal government to address... Addressing climate change",
+          "options": [
+            "A top priority",
+            "Important, but lower priority",
+            "Not too important",
+            "Should not be done",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 6878,
+          "embedding": 0.5742786526679993
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 55)",
+          "variable": "ENVIR8_e_W55",
+          "q_text": "How much do you think the federal government is doing to…  Reduce the effects of global climate change",
+          "options": [
+            "Too much",
+            "Too little",
+            "About the right amount",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 3627,
+          "embedding": 0.5913184285163879
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 128)",
+          "variable": "ENVIR8_e_W128",
+          "q_text": "How much do you think the federal government is doing to…    Reduce the effects of global climate change",
+          "options": [
+            "Too much",
+            "Too little",
+            "About the right amount",
+            "Refused"
+          ],
+          "year_min": 2023,
+          "year_max": 2023,
+          "n": 10329,
+          "embedding": 0.5871763229370117
+        }
+      ]
+    },
+    {
+      "id": "domestic-election-fraud",
+      "category": "domestic policy",
+      "text": "Election fraud is a major threat to the integrity of American elections.",
+      "status": 200,
+      "latency_ms": 799,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 73)",
+          "variable": "KNOWMAILFRAUD_W73",
+          "q_text": "As far as you know, how big of a problem has voter fraud been when it comes to voting by mail in U.S. presidential elections?",
+          "options": [
+            "Major problem",
+            "Minor problem",
+            "Not a problem at all",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 9220,
+          "embedding": 0.4927716553211212
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 80)",
+          "variable": "JBWON_CHT_W80",
+          "q_text": "How much of a reason, if at all, are each of the following for the result of the 2020 presidential election?  There was widespread illegal voting and fraud",
+          "options": [
+            "Major reason",
+            "Minor reason",
+            "Not a reason",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 5360,
+          "embedding": 0.4787307381629944
+        }
+      ]
+    },
+    {
+      "id": "online-misinformation-removal",
+      "category": "online culture",
+      "text": "Social media platforms should remove political misinformation.",
+      "status": 200,
+      "latency_ms": 967,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 74)",
+          "variable": "SMPOLAD1_W74",
+          "q_text": "Do you think social media companies should…",
+          "options": [
+            "Allow all political ads on their platforms",
+            "Only allow some political ads on their platforms",
+            "Not allow any political ads on their platforms",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 10093,
+          "embedding": 0.5914427042007446
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 81)",
+          "variable": "SMREMOVEF1_W81",
+          "q_text": "Thinking about the content posted by elected officials on social media, which statement comes closer to your own view, even if neither is exactly right? Social media companies…",
+          "options": [
+            "Should remove heated or aggressive content posted by elected officials if the companies think it could encourage some pe",
+            "Should NOT remove heated or aggressive content posted by elected officials even if the companies think it could encourag",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 10334,
+          "embedding": 0.545283317565918
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 81)",
+          "variable": "SMREMOVEF2_W81",
+          "q_text": "Thinking about the content posted by ordinary users on social media, which statement comes closer to your own view, even if neither is exactly right? Social media companies…",
+          "options": [
+            "Should remove heated or aggressive content posted by ordinary users if the companies think it could encourage some peopl",
+            "Should NOT remove heated or aggressive content posted by ordinary users even if the companies think it could encourage s",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 10334,
+          "embedding": 0.5217471122741699
+        }
+      ]
+    },
+    {
+      "id": "online-teen-age-limit",
+      "category": "online culture",
+      "text": "Children under sixteen should not be allowed to use social media.",
+      "status": 200,
+      "latency_ms": 990,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 63)",
+          "variable": "SHARENTING3_b_W63",
+          "q_text": "Which of the following is a reason you do not post photos, videos or information about your children on social media sites? I don’t want my children to be judged by other users",
+          "options": [
+            "Major reason",
+            "Minor reason",
+            "Not a reason",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 3640,
+          "embedding": 0.5427674651145935
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 63)",
+          "variable": "ACCEPTUSE_a_W63",
+          "q_text": "In general, at what age do you think it is acceptable for children to BEGIN... Using social media sites",
+          "options": [
+            "0-2 years old",
+            "3-4 years old",
+            "5-8 years old",
+            "9-11 years old",
+            "12-14 years old",
+            "15-17 years old or older",
+            "This is not acceptable for children",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 3640,
+          "embedding": 0.5982847213745117
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 135)",
+          "variable": "SMPLCYSO_b_W135",
+          "q_text": "Requiring parental consent for minors to create a social media account // Would you support or oppose social media companies …",
+          "options": [
+            "Support",
+            "Oppose",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2023,
+          "year_max": 2023,
+          "n": 8842,
+          "embedding": 0.5489298701286316
+        }
+      ]
+    },
+    {
+      "id": "online-ai-regulation",
+      "category": "online culture",
+      "text": "AI companies should be regulated before they release powerful models.",
+      "status": 200,
+      "latency_ms": 965,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 35)",
+          "variable": "TC5_W35",
+          "q_text": "Thinking about the role of the government in regulating major technology companies, do you think these companies should be regulated…",
+          "options": [
+            "More than they are now",
+            "Less than they are now",
+            "About the same as they are now",
+            "Refused"
+          ],
+          "year_min": 2018,
+          "year_max": 2018,
+          "n": 4594,
+          "embedding": 0.4545414447784424
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 129)",
+          "variable": "SMVIOLENT_W129",
+          "q_text": "Should social media companies be held accountable for extremely violent content that users post on the companies’ platforms?",
+          "options": [
+            "Yes, they should be held accountable",
+            "No, they should not be held accountable",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2023,
+          "year_max": 2023,
+          "n": 5115,
+          "embedding": 0.4651586711406708
+        }
+      ]
+    },
+    {
+      "id": "online-creator-pay",
+      "category": "online culture",
+      "text": "Social platforms should pay creators a guaranteed share of advertising revenue.",
+      "status": 200,
+      "latency_ms": 823,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "manual_review",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 49)",
+          "variable": "KNOW2_W49",
+          "q_text": "Which of the following is the largest source of revenue for most major social media platforms?",
+          "options": [
+            "Exclusive licensing deals with internet service providers and cellphone manufacturers",
+            "Allowing companies to purchase advertisements on their platforms",
+            "Hosting conferences for social media influencers",
+            "Providing consulting services to corporate clients",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 4272,
+          "embedding": 0.5133762359619141
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 74)",
+          "variable": "SMPOLAD1_W74",
+          "q_text": "Do you think social media companies should…",
+          "options": [
+            "Allow all political ads on their platforms",
+            "Only allow some political ads on their platforms",
+            "Not allow any political ads on their platforms",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 10093,
+          "embedding": 0.4953647255897522
+        }
+      ]
+    },
+    {
+      "id": "online-data-privacy",
+      "category": "online culture",
+      "text": "The government should strictly limit how technology companies collect personal data.",
+      "status": 200,
+      "latency_ms": 900,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 35)",
+          "variable": "TC5_W35",
+          "q_text": "Thinking about the role of the government in regulating major technology companies, do you think these companies should be regulated…",
+          "options": [
+            "More than they are now",
+            "Less than they are now",
+            "About the same as they are now",
+            "Refused"
+          ],
+          "year_min": 2018,
+          "year_max": 2018,
+          "n": 4594,
+          "embedding": 0.5500240325927734
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 49)",
+          "variable": "GOVREGV1_W49",
+          "q_text": "How much government regulation of what companies can do with their customers’ personal information do you think there should be?",
+          "options": [
+            "More regulation",
+            "Less regulation",
+            "About the same amount",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 4272,
+          "embedding": 0.5574031472206116
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 127)",
+          "variable": "GOVREGV1_W127",
+          "q_text": "How much government regulation do you think there should be of what companies can do with their customers’ personal information?",
+          "options": [
+            "More regulation than now",
+            "Less regulation than now",
+            "About the same amount as now",
+            "Refused"
+          ],
+          "year_min": 2023,
+          "year_max": 2023,
+          "n": 5101,
+          "embedding": 0.5574289560317993
+        }
+      ]
+    },
+    {
+      "id": "international-ukraine-funding",
+      "category": "international",
+      "text": "The United States should stop funding Ukraine.",
+      "status": 200,
+      "latency_ms": 853,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 104)",
+          "variable": "UKR_SPRT_W104",
+          "q_text": "When it comes to Russia’s invasion of Ukraine, do you think the U.S. is providing…",
+          "options": [
+            "Too much support to Ukraine",
+            "Not enough support to Ukraine",
+            "About the right amount of support to Ukraine",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 10441,
+          "embedding": 0.5197160243988037
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 107)",
+          "variable": "UKR_SPRT_W107",
+          "q_text": "When it comes to Russia’s invasion of Ukraine, do you think the U.S. is providing…",
+          "options": [
+            "Too much support to Ukraine",
+            "Not enough support to Ukraine",
+            "About the right amount of support to Ukraine",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 5074,
+          "embedding": 0.5194342732429504
+        }
+      ]
+    },
+    {
+      "id": "international-nato",
+      "category": "international",
+      "text": "The United States should remain committed to NATO even when allies spend too little on defense.",
+      "status": 200,
+      "latency_ms": 957,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "manual_review",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (1984-1984)",
+          "variable": "natarmsz",
+          "q_text": "We are faced with many problems in this country, none of which can be solved easily or inexpensively. I'm going to name some of these problems, and for each one I'd like you to tell me whether you think we're spending too much money on it, too little money, or about the right amount. First (READ ITEM A) . . . are we spending too much, too little, or about the right amount on (ITEM)?",
+          "options": [
+            "1. TOO LITTLE",
+            "2. ABOUT RIGHT",
+            "3. TOO MUCH"
+          ],
+          "year_min": 1984,
+          "year_max": 1984,
+          "n": null,
+          "embedding": 0.4896875321865082
+        },
+        {
+          "rank": 2,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (1984-2024)",
+          "variable": "natarmsy",
+          "q_text": "We are faced with many problems in this country, none of which can be solved easily or inexpensively. I'm going to name some of these problems, and for each one I'd like you to tell me whether you think we're spending too much money on it, too little money, or about the right amount. First (READ ITEM A) . . . are we spending too much, too little, or about the right amount on (ITEM)?",
+          "options": [
+            "1. TOO LITTLE",
+            "2. ABOUT RIGHT",
+            "3. TOO MUCH"
+          ],
+          "year_min": 1984,
+          "year_max": 2024,
+          "n": null,
+          "embedding": 0.4823947250843048
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 145)",
+          "variable": "EU_DEF_SPEND_W145",
+          "q_text": "Now thinking about American allies in Europe, do you think that our European allies’ spending on national defense should…?",
+          "options": [
+            "Increase",
+            "Decrease",
+            "Stay about the same",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2024,
+          "year_max": 2024,
+          "n": 3600,
+          "embedding": 0.5622720122337341
+        }
+      ]
+    },
+    {
+      "id": "international-gaza-ceasefire",
+      "category": "international",
+      "text": "The United States should pressure Israel to accept a permanent ceasefire in Gaza.",
+      "status": 200,
+      "latency_ms": 894,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "ces",
+          "source_label": "CES Common Content (2025)",
+          "variable": "CC25_308b_{1..10}",
+          "q_text": "Israel/Gaza",
+          "options": null,
+          "year_min": 2025,
+          "year_max": 2025,
+          "n": 17000,
+          "embedding": 0.5441138744354248
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 5)",
+          "variable": "Q26_W5",
+          "q_text": "In terms of resolving the dispute between Israel and the Palestinians, do you think the United States should be...",
+          "options": [
+            "More involved",
+            "Less involved",
+            "As involved as it currently is",
+            "Refused"
+          ],
+          "year_min": 2014,
+          "year_max": 2014,
+          "n": 3351,
+          "embedding": 0.5566695928573608
+        },
+        {
+          "rank": 3,
+          "source": "ces",
+          "source_label": "CES Common Content (2023)",
+          "variable": "CC23_308_{1..10}",
+          "q_text": "Israel/Gaza",
+          "options": null,
+          "year_min": 2023,
+          "year_max": 2023,
+          "n": 24500,
+          "embedding": 0.5387864112854004
+        }
+      ]
+    },
+    {
+      "id": "international-china-tariffs",
+      "category": "international",
+      "text": "The United States should impose higher tariffs on goods imported from China.",
+      "status": 200,
+      "latency_ms": 877,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "ces",
+          "source_label": "CCES Common Content (2020)",
+          "variable": "CC20_338a",
+          "q_text": "Trade policy -- Tariffs on $200 billion worth of goods imported from China",
+          "options": [
+            "1. Support",
+            "2. Oppose",
+            "8. skipped",
+            "9. not asked"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 61000,
+          "embedding": 0.5661685466766357
+        },
+        {
+          "rank": 2,
+          "source": "ces",
+          "source_label": "CES Common Content (2021)",
+          "variable": "CC21_325a",
+          "q_text": "Trade policy -- 20 percent tariffs on goods imported from China",
+          "options": [
+            "1. Support",
+            "2. Oppose",
+            "8. skipped",
+            "9. not asked"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 25700,
+          "embedding": 0.5457971096038818
+        },
+        {
+          "rank": 3,
+          "source": "ces",
+          "source_label": "CCES Common Content (2018)",
+          "variable": "CC18_331a",
+          "q_text": "Trade policy -- $50 billion worth of tariffs on goods imported from China",
+          "options": [
+            "1. Support",
+            "2. Oppose",
+            "8. skipped",
+            "9. not asked"
+          ],
+          "year_min": 2018,
+          "year_max": 2018,
+          "n": 60000,
+          "embedding": 0.5510349273681641
+        }
+      ]
+    },
+    {
+      "id": "international-uk-monarchy",
+      "category": "international",
+      "text": "The United Kingdom should abolish the monarchy.",
+      "status": 200,
+      "latency_ms": 958,
+      "weak_match": true,
+      "bm25_only": false,
+      "assessment": "suppressed",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 145)",
+          "variable": "FAV_UK_W145",
+          "q_text": "The United Kingdom // Do you have a favorable or unfavorable opinion of…",
+          "options": [
+            "Very favorable",
+            "Somewhat favorable",
+            "Somewhat unfavorable",
+            "Very unfavorable",
+            "Refused"
+          ],
+          "year_min": 2024,
+          "year_max": 2024,
+          "n": 3600,
+          "embedding": 0.3737574517726898
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 105)",
+          "variable": "PM_UNITEDKINGDOM_W105",
+          "q_text": "Who is the current Prime Minister of the United Kingdom?",
+          "options": [
+            "Justin Trudeau",
+            "Boris Johnson",
+            "Theresa May",
+            "Scott Morrison",
+            "Not sure",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 3581,
+          "embedding": 0.33026644587516785
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 105)",
+          "variable": "GROWINFLU_UK_W105",
+          "q_text": "For each of the following countries, would you say its influence in the world in recent years has been…    The United Kingdom",
+          "options": [
+            "Getting stronger",
+            "Getting weaker",
+            "Staying about the same",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 3581,
+          "embedding": 0.34325647354125977
+        }
+      ]
+    },
+    {
+      "id": "lifestyle-meat-morality",
+      "category": "lifestyle",
+      "text": "People who eat meat are doing something immoral.",
+      "status": 200,
+      "latency_ms": 1026,
+      "weak_match": true,
+      "bm25_only": false,
+      "assessment": "suppressed",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (1993-1994)",
+          "variable": "nomeat",
+          "q_text": "C. And how often do you refuse to eat meat for moral or environmental reasons?",
+          "options": [
+            "1. ALWAYS",
+            "2. OFTEN",
+            "3. SOMETIMES",
+            "4. NEVER"
+          ],
+          "year_min": 1993,
+          "year_max": 1994,
+          "n": null,
+          "embedding": 0.36841392517089844
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 110)",
+          "variable": "TRAITREPa_W110",
+          "q_text": "Compared to other Americans, would you say Republicans are…",
+          "options": [
+            "A lot more moral",
+            "Somewhat more moral",
+            "About the same",
+            "Somewhat more IMmoral",
+            "A lot more IMmoral",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 6174,
+          "embedding": 0.34181463718414307
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 89)",
+          "variable": "EN6F1_a_W89",
+          "q_text": "Do you do each of the following in your everyday life in order TO HELP PROTECT THE ENVIRONMENT, or don’t you?    Eat less meat",
+          "options": [
+            "Yes, I do this",
+            "No, I do not do this",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 13749,
+          "embedding": 0.3362955152988434
+        }
+      ]
+    },
+    {
+      "id": "lifestyle-remote-work",
+      "category": "lifestyle",
+      "text": "Employees should be allowed to work from home whenever their jobs permit it.",
+      "status": 200,
+      "latency_ms": 884,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 102)",
+          "variable": "OFFICEOPEN2_W102",
+          "q_text": "Are you working from home rarely or never because your employer doesn’t allow you to work from home more often or for some other reason?",
+          "options": [
+            "Not allowed to work from home more often",
+            "For some other reason",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 10237,
+          "embedding": 0.5610001087188721
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 102)",
+          "variable": "WFHOPTION_W102",
+          "q_text": "Regardless of your current work arrangement, would you say that, for the most part, the responsibilities of your job...",
+          "options": [
+            "Can be done from home",
+            "Cannot be done from home",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 10237,
+          "embedding": 0.5583153367042542
+        }
+      ]
+    },
+    {
+      "id": "lifestyle-children-smartphones",
+      "category": "lifestyle",
+      "text": "Parents should not give smartphones to children before high school.",
+      "status": 200,
+      "latency_ms": 970,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 156)",
+          "variable": "CBANO_a_W156",
+          "q_text": "Parents should be able to reach their child when needed // Which of the following are reasons why you oppose a ban on middle and high school students using cellphones during class?",
+          "options": [
+            "Major reason",
+            "Minor reason",
+            "Not a reason",
+            "Don't know/Refused/Web blank"
+          ],
+          "year_min": 2024,
+          "year_max": 2024,
+          "n": 5110,
+          "embedding": 0.5593496561050415
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 77)",
+          "variable": "SCHLCNCRN_f_W77",
+          "q_text": "Compared with before the coronavirus outbreak, how concerned, if at all, are you about each of the following for any of your children who are in elementary, middle or high school?Having too much screen time",
+          "options": [
+            "More concerned than before the outbreak",
+            "Less concerned than before the outbreak",
+            "About the same as before the outbreak",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 10332,
+          "embedding": 0.45330411195755005
+        }
+      ]
+    },
+    {
+      "id": "lifestyle-polyamory",
+      "category": "lifestyle",
+      "text": "Consensual polyamorous relationships deserve the same social acceptance as monogamous relationships.",
+      "status": 200,
+      "latency_ms": 872,
+      "weak_match": true,
+      "bm25_only": false,
+      "assessment": "suppressed",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 92)",
+          "variable": "SOCIETY_TRANS_W92",
+          "q_text": "Do you think each of the following is generally good or bad for our society?    Greater social acceptance of people who are transgender (people who identify as a gender that is different from the sex they were assigned at birth)",
+          "options": [
+            "Very good for society",
+            "Somewhat good for society",
+            "Neither good nor bad for society",
+            "Somewhat bad for society",
+            "Very bad for society",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 10916,
+          "embedding": 0.41170766949653625
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 113)",
+          "variable": "SOCIETYTRANS_W113",
+          "q_text": "Do you think each of the following is generally good or bad for our society?    Greater social acceptance of people who are transgender (people who identify as a gender that is different from the sex they were assigned at birth)",
+          "options": [
+            "Very good for society",
+            "Somewhat good for society",
+            "Neither good nor bad for society",
+            "Somewhat bad for society",
+            "Very bad for society",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 7647,
+          "embedding": 0.4092702865600586
+        },
+        {
+          "rank": 3,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (1996-1998)",
+          "variable": "romance",
+          "q_text": "Do you have a main romantic involvement - a (man/woman) you think of as a steady, a lover, a partner, or whatever?",
+          "options": [
+            "1. YES",
+            "2. NO",
+            "3. HAS SAME GENDER PARTNER"
+          ],
+          "year_min": 1996,
+          "year_max": 1998,
+          "n": null,
+          "embedding": 0.31146231293678284
+        }
+      ]
+    },
+    {
+      "id": "lifestyle-homeschooling",
+      "category": "lifestyle",
+      "text": "Parents should have broad freedom to homeschool their children.",
+      "status": 200,
+      "latency_ms": 993,
+      "weak_match": true,
+      "bm25_only": false,
+      "assessment": "suppressed",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 18)",
+          "variable": "PAR2CHILD_W18",
+          "q_text": "Which statement comes closer to your own views - even if neither is exactly right?",
+          "options": [
+            "Children with two parents are better off when a parent stays home to focus on the family",
+            "Children with two parents are just as well off when their parents work outside the home",
+            "Refused"
+          ],
+          "year_min": 2016,
+          "year_max": 2016,
+          "n": 4602,
+          "embedding": 0.42943477630615234
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 71)",
+          "variable": "COVSCHLCNCRN_e_W71",
+          "q_text": "In deciding whether to open K-12 schools in the fall for in-person instruction, how much consideration should be given to each of the following?  Parents not being able to work if their children are",
+          "options": [
+            "A lot",
+            "Some",
+            "Not too much",
+            "None at all",
+            "Refused"
+          ],
+          "year_min": 2020,
+          "year_max": 2020,
+          "n": 11001,
+          "embedding": 0.4317325949668884
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 17)",
+          "variable": "BIO35_W17",
+          "q_text": "Which comes closer to your views about childhood vaccines for measles, mumps and rubella, even if neither is exactly right?",
+          "options": [
+            "Parents should be able to decide NOT to vaccinate their children, even if that may create health risks...",
+            "Healthy children should be required to be vaccinated in order to attend public schools because of the potential...",
+            "Refused"
+          ],
+          "year_min": 2016,
+          "year_max": 2016,
+          "n": 4563,
+          "embedding": 0.40433013439178467
+        }
+      ]
+    },
+    {
+      "id": "identity-gender-documents",
+      "category": "identity and values",
+      "text": "Government identity documents should include gender options beyond male and female.",
+      "status": 200,
+      "latency_ms": 1408,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 109)",
+          "variable": "TRANSGEND14_W109",
+          "q_text": "When government documents such as passports and driver’s licenses ask about a person’s gender, do you think they should include options other than “male” and “female” for people who don’t identify as either?",
+          "options": [
+            "Yes",
+            "No",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 10188,
+          "embedding": 0.6745651960372925
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 109)",
+          "variable": "TRANSGEND13_W109",
+          "q_text": "When a form or online profile asks about a person’s gender, do you think it should include options other than “male” and “female” for people who don’t identify as either?",
+          "options": [
+            "Yes",
+            "No",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 10188,
+          "embedding": 0.5840967893600464
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 38)",
+          "variable": "GENDEROPT_W38",
+          "q_text": "On a different subject…When a form or online profile asks about a person’s gender, do you think it should include options other than “man” and “woman” for people who don’t identify as either?",
+          "options": [
+            "Yes",
+            "No",
+            "Refused"
+          ],
+          "year_min": 2018,
+          "year_max": 2018,
+          "n": 10682,
+          "embedding": 0.5483365058898926
+        }
+      ]
+    },
+    {
+      "id": "identity-trans-sports",
+      "category": "identity and values",
+      "text": "Transgender athletes should compete on teams matching their gender identity.",
+      "status": 200,
+      "latency_ms": 954,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 109)",
+          "variable": "TRANSGEND6_d_W109",
+          "q_text": "Would you favor or oppose laws or policies that do each of the following?    Require that transgender athletes compete on teams that match the sex they were assigned at birth, not the gender they identify with",
+          "options": [
+            "Strongly favor",
+            "Favor",
+            "Neither favor nor oppose",
+            "Oppose",
+            "Strongly oppose",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 10188,
+          "embedding": 0.6041865348815918
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 20)",
+          "variable": "TRANSREST3_W20",
+          "q_text": "And if you had to choose, which comes closest to your view? Transgender people should be...",
+          "options": [
+            "Allowed to use the public restrooms of the gender with which they currently identify",
+            "Required to use the public restrooms of the gender they were born into",
+            "Refused"
+          ],
+          "year_min": 2016,
+          "year_max": 2016,
+          "n": 4538,
+          "embedding": 0.5198525786399841
+        }
+      ]
+    },
+    {
+      "id": "identity-masculinity",
+      "category": "identity and values",
+      "text": "Traditional expectations of masculinity do more harm than good.",
+      "status": 200,
+      "latency_ms": 1123,
+      "weak_match": true,
+      "bm25_only": false,
+      "assessment": "suppressed",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 132)",
+          "variable": "RELIMPACT_W132",
+          "q_text": "Overall, what impact does religion have on American society?",
+          "options": [
+            "Religion does more harm than good",
+            "Religion does more good than harm",
+            "Religion does equal amounts of good and harm",
+            "Refused"
+          ],
+          "year_min": 2023,
+          "year_max": 2023,
+          "n": 11201,
+          "embedding": 0.35348445177078247
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 46)",
+          "variable": "CHURCHIMPACT_W46",
+          "q_text": "Considering everything, what impact do churches and religious organizations have on American society?",
+          "options": [
+            "They do more harm than good",
+            "They do more good than harm",
+            "Don't make much difference",
+            "Refused"
+          ],
+          "year_min": 2019,
+          "year_max": 2019,
+          "n": 6364,
+          "embedding": 0.347064733505249
+        },
+        {
+          "rank": 3,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (1993-2000)",
+          "variable": "harmgood",
+          "q_text": "How much do you agree or disagree with each of these statements?",
+          "options": [
+            "1. STRONGLY AGREE",
+            "2. AGREE",
+            "3. NEITHER AGREE NOR DISAGREE",
+            "4. DISAGREE",
+            "5. STRONGLY DISAGREE"
+          ],
+          "year_min": 1993,
+          "year_max": 2000,
+          "n": null,
+          "embedding": 0.369789719581604
+        }
+      ]
+    },
+    {
+      "id": "identity-religion-government",
+      "category": "identity and values",
+      "text": "The government should do more to support religion in public life.",
+      "status": 200,
+      "latency_ms": 985,
+      "weak_match": false,
+      "bm25_only": false,
+      "assessment": "relevant",
+      "top_hits": [
+        {
+          "rank": 1,
+          "source": "gss",
+          "source_label": "GSS (General Social Survey) (1975-1987)",
+          "variable": "helpnot",
+          "q_text": "Now look at CARD BD. Some people think that the government in Washington is trying to do too many things that should be left to individuals and private businesses. Others disagree and think that the government should Do even",
+          "options": [
+            "1. Government should do more",
+            "2.",
+            "3. Agree with both",
+            "4.",
+            "5. Government does too much"
+          ],
+          "year_min": 1975,
+          "year_max": 1987,
+          "n": null,
+          "embedding": 0.5092506408691406
+        },
+        {
+          "rank": 2,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 92)",
+          "variable": "RELIG_GOV_W92",
+          "q_text": "Please choose the statement that comes closer to your own views – even if neither is exactly right.",
+          "options": [
+            "Religion should be kept separate from government policies",
+            "Government policies should support religious values and beliefs",
+            "Refused"
+          ],
+          "year_min": 2021,
+          "year_max": 2021,
+          "n": 10916,
+          "embedding": 0.5555863976478577
+        },
+        {
+          "rank": 3,
+          "source": "pew",
+          "source_label": "Pew Research Center ATP (Wave 107)",
+          "variable": "RELIG_GOV_W107",
+          "q_text": "Please choose the statement that comes closer to your own views – even if neither is exactly right.",
+          "options": [
+            "Religion should be kept separate from government policies",
+            "Government policies should support religious values and beliefs",
+            "Refused"
+          ],
+          "year_min": 2022,
+          "year_max": 2022,
+          "n": 5074,
+          "embedding": 0.5488758087158203
+        }
+      ]
+    }
+  ]
+}

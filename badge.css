@@ -126,6 +126,10 @@
   color: #aab8c2;
 }
 
+.fringe-footer a {
+  color: inherit;
+}
+
 /* ── Reddit density adjustment ──────────────────────────────────────────── */
 /* shreddit-comment has a tighter layout; pull the badge in a bit. */
 shreddit-comment .fringe-badge {

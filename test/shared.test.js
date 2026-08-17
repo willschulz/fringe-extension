@@ -19,7 +19,7 @@ test("defaults to disabled annotation and the public pilot endpoint", () => {
   assert.equal(settings.enabled, false);
   assert.equal(
     settings.apiUrl,
-    "https://demoscope-api.willschulz.com/v1/search"
+    "https://willschulz.com/demoscope-api/v1/search"
   );
   assert.equal(settings.apiToken, "");
 });

@@ -47,6 +47,17 @@ The supported sites change their markup without notice. A missing badge may
 mean either that no reliable survey match exists or that a site selector needs
 updating.
 
+## Known alpha limitations
+
+- Topic similarity does not guarantee that a survey question measures the
+  stance expressed in a post.
+- Some matrix/battery questions have generic wording without enough item
+  context.
+- Lifestyle and non-U.S. coverage is thinner than U.S. political coverage.
+- The first readiness set found one clear displayed false positive in 19 badge
+  cases; see the [evaluation report](evaluation/2026-08-17-readiness.md).
+- Site markup changes can temporarily stop post extraction or badge placement.
+
 ## What a badge means
 
 A badge means that the search service found one or more survey questions
@@ -82,4 +93,5 @@ See [docs/API.md](docs/API.md) for the pilot API contract.
 
 Extension code is available under the [MIT License](LICENSE). Survey question
 metadata returned by the search service remains subject to the terms and
-attribution requirements of its original survey publishers.
+attribution requirements of its original survey publishers; see
+[SURVEY_SOURCES.md](SURVEY_SOURCES.md).

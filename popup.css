@@ -156,3 +156,7 @@ button:disabled {
 .sites {
   margin-top: 6px;
 }
+
+.sites a {
+  color: LinkText;
+}
