@@ -6,7 +6,7 @@
  *   - Bluesky      (bsky.app)
  *   - Reddit       (reddit.com) — new Reddit / Shreddit only
  *
- * Polls the DOM every 800 ms looking for new posts.  For each new post:
+ * Watches the DOM and processes posts only when they approach the viewport:
  *   1. Extract the post's text content.
  *   2. Extract a stable post ID for caching (tweet numeric ID, Bluesky rkey,
  *      or Reddit fullname / post ID).
@@ -23,10 +23,6 @@
 // context, so we use a higher cap for that platform.
 const MAX_QUERY_CHARS = 280;
 const MAX_QUERY_CHARS_REDDIT = 500;
-
-// Similarity threshold below which we suppress the badge.
-// Mirrors survey_search.config.WEAK_MATCH_THRESHOLD.
-const WEAK_MATCH_THRESHOLD = 0.30;
 
 // Attribute used to mark processed post anchors across poll cycles.
 const PROCESSED_ATTR = "data-fringe";
@@ -279,14 +275,6 @@ function hitToHTML(hit) {
       }</span>`
     : "";
 
-  const detailURL =
-    hit.file && hit.anchor
-      ? `https://demoscope.manx-celsius.ts.net/q/${hit.source}/${hit.file
-          .split("/")
-          .pop()
-          .replace(/\.md$/, "")}/${hit.anchor}`
-      : `https://demoscope.manx-celsius.ts.net/?q=${encodeURIComponent(stem)}`;
-
   const sampleNote = hit.n ? ` · n≈${hit.n.toLocaleString()}` : "";
 
   return `
@@ -294,7 +282,6 @@ function hitToHTML(hit) {
       <span class="fringe-pill">${escapeHTML(source)}${year ? ` ${year}` : ""}${sampleNote}</span>
       <span class="fringe-stem">${escapeHTML(stem)}${stem !== hit.q_text ? "…" : ""}</span>
       ${optsHTML}
-      <a class="fringe-link" href="${detailURL}" target="_blank" rel="noopener">view question ↗</a>
     </div>`.trim();
 }
 
@@ -311,31 +298,24 @@ function escapeHTML(str) {
  * Returns null if the match is too weak or there are no hits.
  */
 function buildBadge(data) {
-  if (!data.hits || data.hits.length === 0) return null;
-  const top = data.hits[0];
-  if (
-    top.embedding !== null &&
-    top.embedding !== undefined &&
-    top.embedding < WEAK_MATCH_THRESHOLD
-  )
-    return null;
+  if (!FringeShared.shouldDisplay(data)) return null;
 
   const badge = document.createElement("div");
   badge.className = "fringe-badge";
+  const panelId = `fringe-panel-${Math.random().toString(36).slice(2, 10)}`;
 
   badge.innerHTML = `
-    <button class="fringe-toggle" aria-expanded="false">
+    <button class="fringe-toggle" aria-expanded="false" aria-controls="${panelId}">
       <span class="fringe-icon">📊</span>
-      <span class="fringe-label">Public opinion data</span>
+      <span class="fringe-label">Related public-opinion data</span>
       <span class="fringe-chevron">▸</span>
     </button>
-    <div class="fringe-panel" hidden>
+    <div class="fringe-panel" id="${panelId}" hidden>
       <div class="fringe-hits">
         ${data.hits.map(hitToHTML).join("")}
       </div>
       <p class="fringe-footer">
-        Survey data via <a href="https://demoscope.manx-celsius.ts.net" target="_blank" rel="noopener">demoscope</a>
-        ${data.bm25_only ? " · keyword-only match" : ""}
+        Experimental match · not a fringe/mainstream classification
       </p>
     </div>`.trim();
 
@@ -354,42 +334,122 @@ function buildBadge(data) {
 }
 
 // ---------------------------------------------------------------------------
-// Main polling loop
+// Viewport-gated observation and bounded request queue
 // ---------------------------------------------------------------------------
 
-function startPolling() {
-  setInterval(() => {
-    const containers = document.querySelectorAll(
-      platform.containerSelector
-    );
+const MAX_CONCURRENT = 3;
+const queue = [];
+const observedContainers = new Set();
+let activeRequests = 0;
+let scanTimer = null;
 
-    for (const container of containers) {
-      // Skip already-processed containers.
-      if (container.getAttribute(PROCESSED_ATTR)) continue;
+function processContainer(container) {
+  const postId = platform.extractId(container);
+  const text = platform.extractText(container);
+  if (!text || !postId) return Promise.resolve();
 
-      const postId = platform.extractId(container);
-      const text = platform.extractText(container);
+  container.setAttribute(PROCESSED_ATTR, "pending");
+  return new Promise((resolve) => {
+    chrome.runtime.sendMessage({ type: "SEARCH", postId, text }, (data) => {
+      if (chrome.runtime.lastError) {
+        container.setAttribute(PROCESSED_ATTR, "error");
+        resolve();
+        return;
+      }
+      if (data && data.disabled) {
+        container.setAttribute(PROCESSED_ATTR, "disabled");
+        resolve();
+        return;
+      }
+      if (data && data.error) {
+        container.setAttribute(
+          PROCESSED_ATTR,
+          data.retryable ? "retryable-error" : "error"
+        );
+        resolve();
+        return;
+      }
 
-      // Skip if we can't extract usable text or a stable ID.
-      if (!text || !postId) continue;
-
-      container.setAttribute(PROCESSED_ATTR, "pending");
-
-      chrome.runtime.sendMessage({ type: "SEARCH", tweetId: postId, text }, (data) => {
-        if (chrome.runtime.lastError) {
-          container.setAttribute(PROCESSED_ATTR, "error");
-          return;
-        }
-        container.setAttribute(PROCESSED_ATTR, "checked");
-        if (data && !data.error) {
-          // Guard against duplicate injection if another poll cycle snuck in.
-          if (container.querySelector(".fringe-badge")) return;
-          const badge = buildBadge(data);
-          if (badge) platform.injectBadge(container, badge);
-        }
-      });
-    }
-  }, 800);
+      container.setAttribute(PROCESSED_ATTR, "checked");
+      if (!container.querySelector(".fringe-badge")) {
+        const badge = buildBadge(data);
+        if (badge) platform.injectBadge(container, badge);
+      }
+      resolve();
+    });
+  });
 }
 
-startPolling();
+function drainQueue() {
+  while (activeRequests < MAX_CONCURRENT && queue.length > 0) {
+    const container = queue.shift();
+    if (!container || !container.isConnected) continue;
+    activeRequests += 1;
+    processContainer(container).finally(() => {
+      activeRequests -= 1;
+      drainQueue();
+    });
+  }
+}
+
+const intersectionObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      intersectionObserver.unobserve(entry.target);
+      observedContainers.delete(entry.target);
+      if (!entry.target.getAttribute(PROCESSED_ATTR)) queue.push(entry.target);
+    }
+    drainQueue();
+  },
+  { rootMargin: "250px 0px", threshold: 0.01 }
+);
+
+function scanForContainers() {
+  for (const container of document.querySelectorAll(platform.containerSelector)) {
+    if (
+      container.getAttribute(PROCESSED_ATTR) ||
+      observedContainers.has(container)
+    ) {
+      continue;
+    }
+    observedContainers.add(container);
+    intersectionObserver.observe(container);
+  }
+  for (const container of observedContainers) {
+    if (!container.isConnected) observedContainers.delete(container);
+  }
+}
+
+function scheduleScan() {
+  clearTimeout(scanTimer);
+  scanTimer = setTimeout(scanForContainers, 250);
+}
+
+const mutationObserver = new MutationObserver(scheduleScan);
+mutationObserver.observe(document.documentElement, {
+  childList: true,
+  subtree: true,
+});
+
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area !== "local" || !changes.enabled) return;
+  if (changes.enabled.newValue === true) {
+    for (const container of document.querySelectorAll(
+      `[${PROCESSED_ATTR}="disabled"], [${PROCESSED_ATTR}="retryable-error"]`
+    )) {
+      container.removeAttribute(PROCESSED_ATTR);
+    }
+    scheduleScan();
+  } else {
+    queue.splice(0, queue.length);
+    for (const badge of document.querySelectorAll(".fringe-badge")) {
+      badge.remove();
+    }
+    for (const container of document.querySelectorAll(`[${PROCESSED_ATTR}]`)) {
+      container.setAttribute(PROCESSED_ATTR, "disabled");
+    }
+  }
+});
+
+scanForContainers();

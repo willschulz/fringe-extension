@@ -37,6 +37,12 @@
   color: #1d9bf0; /* X's link blue */
 }
 
+.fringe-toggle:focus-visible {
+  outline: 2px solid #1d9bf0;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .fringe-icon {
   font-size: 14px;
   line-height: 1;
@@ -112,33 +118,12 @@
   padding-left: 2px;
 }
 
-/* "view question" link */
-.fringe-link {
-  font-size: 11px;
-  color: #1d9bf0;
-  text-decoration: none;
-  margin-top: 2px;
-}
-
-.fringe-link:hover {
-  text-decoration: underline;
-}
-
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 
 .fringe-footer {
   margin: 4px 0 0 0;
   font-size: 11px;
   color: #aab8c2;
-}
-
-.fringe-footer a {
-  color: #aab8c2;
-  text-decoration: none;
-}
-
-.fringe-footer a:hover {
-  text-decoration: underline;
 }
 
 /* ── Reddit density adjustment ──────────────────────────────────────────── */

@@ -1,0 +1,19 @@
+{
+  "hits": [
+    {
+      "rank": 1,
+      "source": "pew",
+      "source_label": "Pew Research Center",
+      "variable": "SMPOLAD1_W74",
+      "q_text": "Do you think social media companies should remove misleading political content?",
+      "options": ["Should remove it", "Should leave it up"],
+      "year_min": 2020,
+      "year_max": 2020,
+      "n": 4695,
+      "embedding": 0.609
+    }
+  ],
+  "weak_match": false,
+  "bm25_only": false,
+  "total": 1
+}

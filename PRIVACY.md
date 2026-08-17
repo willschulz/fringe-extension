@@ -5,8 +5,10 @@
 When the user explicitly enables annotation, Fringe Detector sends:
 
 - the visible post's extracted text, truncated to the client and server limits;
-- a locally derived post identifier used only for session deduplication; and
 - the pilot API token in the HTTPS `Authorization` header.
+
+A locally derived post identifier is used for session deduplication inside the
+extension, but it is not included in the server request.
 
 Requests are limited to supported post containers on X/Twitter, Bluesky, and
 Reddit. The extension does not intentionally collect account cookies,

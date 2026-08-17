@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fringe Detector pilot</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="mark" aria-hidden="true">📊</span>
+        <div>
+          <h1>Public-opinion context</h1>
+          <p class="alpha">Experimental pilot</p>
+        </div>
+      </header>
+
+      <section class="notice" aria-labelledby="privacy-heading">
+        <h2 id="privacy-heading">Before enabling</h2>
+        <p>
+          Visible post text on supported sites is sent to Will's research
+          server to find related survey questions. This is not yet a
+          fringe/mainstream classification.
+        </p>
+      </section>
+
+      <form id="settings-form">
+        <label for="api-token">Pilot token</label>
+        <input
+          id="api-token"
+          name="apiToken"
+          type="password"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Paste the token supplied separately"
+        >
+
+        <details>
+          <summary>Advanced</summary>
+          <label for="api-url">Search API</label>
+          <input id="api-url" name="apiUrl" type="url" spellcheck="false">
+        </details>
+
+        <div class="actions">
+          <button id="test-button" type="button">Save &amp; test</button>
+        </div>
+
+        <label class="switch-row" for="enabled">
+          <span>
+            <strong>Annotate supported feeds</strong>
+            <small>Pause immediately by turning this off.</small>
+          </span>
+          <input id="enabled" name="enabled" type="checkbox" role="switch">
+        </label>
+      </form>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <p class="sites">Supports X/Twitter, Bluesky, and current Reddit.</p>
+    </main>
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Fringe Detector",
-  "version": "0.1.0",
-  "description": "Annotates posts on X/Twitter, Bluesky, and Reddit with relevant public-opinion survey data, showing how mainstream or fringe each expressed view actually is.",
+  "name": "Fringe Detector (Alpha)",
+  "version": "0.2.0",
+  "description": "Adds experimental, related public-opinion survey context to posts on X/Twitter, Bluesky, and Reddit.",
 
-  "permissions": [],
+  "permissions": ["storage"],
   "host_permissions": [
-    "https://demoscope.manx-celsius.ts.net/*"
+    "https://demoscope-api.willschulz.com/*"
   ],
 
   "background": {
@@ -22,11 +22,16 @@
         "*://www.reddit.com/*",
         "*://reddit.com/*"
       ],
-      "js": ["content.js"],
+      "js": ["shared.js", "content.js"],
       "css": ["badge.css"],
       "run_at": "document_idle"
     }
   ],
+
+  "action": {
+    "default_title": "Fringe Detector pilot settings",
+    "default_popup": "popup.html"
+  },
 
   "icons": {
     "16":  "icons/icon16.png",
